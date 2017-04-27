@@ -1,6 +1,6 @@
 ﻿namespace Main
 {
-    partial class Form1
+    partial class form_main
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // form_main
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(398, 366);
+            this.Name = "form_main";
+            this.Text = "BlindTest";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
