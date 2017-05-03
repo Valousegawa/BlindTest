@@ -16,5 +16,10 @@ namespace Main
         {
             InitializeComponent();
         }
+
+        private void form_main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
