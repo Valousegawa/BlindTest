@@ -123,7 +123,6 @@ namespace Main
                         Label rb = new Label();
                         rb.Text = p.Pseudo + " " + p.Score;
                         rb.Location = new Point(x, y);
-                        rb.Click += new System.EventHandler(this.winner_click);
                         y += 40;
 
                         gb_vainqueur.Controls.Add(rb);

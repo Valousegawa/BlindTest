@@ -73,8 +73,8 @@
             this.label_howmany = new System.Windows.Forms.Label();
             this.gb_round_winner = new System.Windows.Forms.GroupBox();
             this.tab_end = new System.Windows.Forms.TabPage();
-            this.tab_hs = new System.Windows.Forms.TabPage();
             this.gb_vainqueur = new System.Windows.Forms.GroupBox();
+            this.tab_hs = new System.Windows.Forms.TabPage();
             this.main_tabs.SuspendLayout();
             this.tab_rules.SuspendLayout();
             this.tab_params.SuspendLayout();
@@ -588,6 +588,15 @@
             this.tab_end.Text = "Fin";
             this.tab_end.UseVisualStyleBackColor = true;
             // 
+            // gb_vainqueur
+            // 
+            this.gb_vainqueur.Location = new System.Drawing.Point(60, 32);
+            this.gb_vainqueur.Name = "gb_vainqueur";
+            this.gb_vainqueur.Size = new System.Drawing.Size(974, 475);
+            this.gb_vainqueur.TabIndex = 0;
+            this.gb_vainqueur.TabStop = false;
+            this.gb_vainqueur.Text = "Vainqueur ...";
+            // 
             // tab_hs
             // 
             this.tab_hs.Location = new System.Drawing.Point(4, 22);
@@ -597,15 +606,6 @@
             this.tab_hs.TabIndex = 4;
             this.tab_hs.Text = "Highscore";
             this.tab_hs.UseVisualStyleBackColor = true;
-            // 
-            // gb_vainqueur
-            // 
-            this.gb_vainqueur.Location = new System.Drawing.Point(60, 32);
-            this.gb_vainqueur.Name = "gb_vainqueur";
-            this.gb_vainqueur.Size = new System.Drawing.Size(974, 475);
-            this.gb_vainqueur.TabIndex = 0;
-            this.gb_vainqueur.TabStop = false;
-            this.gb_vainqueur.Text = "Vainqueur ...";
             // 
             // form_main
             // 
