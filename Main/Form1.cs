@@ -204,5 +204,10 @@ namespace Main
         {
             System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
         }
+
+        private void btn_play_music_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

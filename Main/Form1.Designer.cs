@@ -75,6 +75,7 @@
             this.tab_end = new System.Windows.Forms.TabPage();
             this.gb_vainqueur = new System.Windows.Forms.GroupBox();
             this.tab_hs = new System.Windows.Forms.TabPage();
+            this.btn_play_music = new System.Windows.Forms.Button();
             this.main_tabs.SuspendLayout();
             this.tab_rules.SuspendLayout();
             this.tab_params.SuspendLayout();
@@ -547,6 +548,7 @@
             // 
             // tab_game
             // 
+            this.tab_game.Controls.Add(this.btn_play_music);
             this.tab_game.Controls.Add(this.label_howmany);
             this.tab_game.Controls.Add(this.gb_round_winner);
             this.tab_game.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -606,6 +608,16 @@
             this.tab_hs.TabIndex = 4;
             this.tab_hs.Text = "Highscore";
             this.tab_hs.UseVisualStyleBackColor = true;
+            // 
+            // btn_play_music
+            // 
+            this.btn_play_music.Location = new System.Drawing.Point(526, 374);
+            this.btn_play_music.Name = "btn_play_music";
+            this.btn_play_music.Size = new System.Drawing.Size(75, 23);
+            this.btn_play_music.TabIndex = 2;
+            this.btn_play_music.Text = "Play";
+            this.btn_play_music.UseVisualStyleBackColor = true;
+            this.btn_play_music.Click += new System.EventHandler(this.btn_play_music_Click);
             // 
             // form_main
             // 
@@ -687,6 +699,7 @@
         private System.Windows.Forms.GroupBox gb_round_winner;
         private System.Windows.Forms.Label label_howmany;
         private System.Windows.Forms.GroupBox gb_vainqueur;
+        private System.Windows.Forms.Button btn_play_music;
     }
 }
 
