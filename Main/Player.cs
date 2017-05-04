@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Main
 {
-    public class Player
+    class Player
     {
         String pseudo;
         int is_arbitre;
@@ -19,15 +19,6 @@ namespace Main
             this.Is_arbitre = 0;
             this.Id_team = 0;
             this.Score = 0;
-        }
-
-        public Player(String pseudo, int id_team, int score, int high_score, int is_arbitre)
-        {
-            this.Pseudo = pseudo;
-            this.Is_arbitre = is_arbitre;
-            this.Id_team = id_team;
-            this.Score = score;
-            this.High_score = high_score;
         }
 
         public Player(String pseudo, int is_arbitre, int id_team, int score)
