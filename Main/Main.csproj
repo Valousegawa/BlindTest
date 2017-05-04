@@ -55,6 +55,15 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerializeToXml.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlRomain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlRomain.Designer.cs">
+      <DependentUpon>UserControlRomain.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -67,6 +76,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControlRomain.resx">
+      <DependentUpon>UserControlRomain.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

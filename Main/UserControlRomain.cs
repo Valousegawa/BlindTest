@@ -15,7 +15,7 @@ namespace Main
 {
     public partial class UserControlRomain : UserControl
     {
-        List<PlayerRomain> listOfFame = new List<PlayerRomain>();
+        List<Player> listOfFame = new List<Player>();
         Random rnd = new Random();
 
         String debug = Path.GetDirectoryName(Application.ExecutablePath) + "\\HallOfFame.xml";
@@ -35,10 +35,10 @@ namespace Main
 
                 label_xml.Text = "XML présent";
 
-                XmlSerializer serializer = new XmlSerializer(typeof(List<PlayerRomain>));
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
 
                 StreamReader reader = new StreamReader(debug);
-                listOfFame = (List<PlayerRomain>)serializer.Deserialize(reader);
+                listOfFame = (List<Player>)serializer.Deserialize(reader);
                 reader.Close();
             }
             else
@@ -49,12 +49,11 @@ namespace Main
                 int[] idsTeam = { 1, 1, 1, 2, 2 };
                 int[] scores = { 150, 20, 350, 40, 560 };
                 int[] highscores = { 100, 200, 300, 400, 500 };
-                Boolean[] areArbitre = { false, true, true, true, false };
 
 
                 for (int i = 0; i < 5; i++)
                 {
-                    PlayerRomain Players = new PlayerRomain(pseudos[i], idsTeam[i], scores[i], highscores[i], areArbitre[i]);
+                    Player Players = new Player(pseudos[i], idsTeam[i], scores[i], highscores[i]);
                     //Players.infosPlayer();
                     listOfFame.Add(Players);
                 }
@@ -66,13 +65,13 @@ namespace Main
 
             //Console.WriteLine("Start Get Highscore\n");
 
-            XmlSerializer serializer = new XmlSerializer(typeof(List<PlayerRomain>));
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
             StreamReader reader = new StreamReader(debug);
 
-            listOfFame = (List<PlayerRomain>)serializer.Deserialize(reader);
+            listOfFame = (List<Player>)serializer.Deserialize(reader);
             reader.Close();
 
-            foreach (PlayerRomain plr in listOfFame)
+            foreach (Player plr in listOfFame)
             {
                 //Console.Write(
                 //plr.pseudo + "\t" +
@@ -88,9 +87,9 @@ namespace Main
 
                 //Console.WriteLine(plr.score > plr.highscore);
 
-                if (plr.score > plr.highscore)
+                if (plr.Score > plr.High_score)
                 {
-                    plr.highscore = plr.score;
+                    plr.High_score = plr.Score;
                     //Console.WriteLine("Entrée de boucle if\n");
                 }
 
@@ -103,7 +102,7 @@ namespace Main
 
         private void button1_Click(object sender, EventArgs e)
         {
-            XmlSerializer xs = new XmlSerializer(typeof(List<PlayerRomain>));
+            XmlSerializer xs = new XmlSerializer(typeof(List<Player>));
             using (StreamWriter wr = new StreamWriter(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "HallOfFame.xml")))
             {
                 MessageBox.Show(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "HallOfFame.xml"));

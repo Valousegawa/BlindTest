@@ -70,12 +70,13 @@
             this.label_arbitre = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tab_game = new System.Windows.Forms.TabPage();
+            this.btn_play_music = new System.Windows.Forms.Button();
             this.label_howmany = new System.Windows.Forms.Label();
             this.gb_round_winner = new System.Windows.Forms.GroupBox();
             this.tab_end = new System.Windows.Forms.TabPage();
             this.gb_vainqueur = new System.Windows.Forms.GroupBox();
             this.tab_hs = new System.Windows.Forms.TabPage();
-            this.btn_play_music = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.main_tabs.SuspendLayout();
             this.tab_rules.SuspendLayout();
             this.tab_params.SuspendLayout();
@@ -85,6 +86,7 @@
             this.tab_arbitre.SuspendLayout();
             this.tab_game.SuspendLayout();
             this.tab_end.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // main_tabs
@@ -103,6 +105,7 @@
             // 
             // tab_rules
             // 
+            this.tab_rules.Controls.Add(this.pictureBox1);
             this.tab_rules.Controls.Add(this.ll_login);
             this.tab_rules.Controls.Add(this.label8);
             this.tab_rules.Controls.Add(this.label7);
@@ -163,9 +166,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(182, 181);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(189, 177);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(193, 13);
+            this.label5.Size = new System.Drawing.Size(396, 25);
             this.label5.TabIndex = 2;
             this.label5.Text = "Commencer par entrer tous les joueurs !";
             // 
@@ -560,6 +564,16 @@
             this.tab_game.Text = "Jeu";
             this.tab_game.UseVisualStyleBackColor = true;
             // 
+            // btn_play_music
+            // 
+            this.btn_play_music.Location = new System.Drawing.Point(526, 374);
+            this.btn_play_music.Name = "btn_play_music";
+            this.btn_play_music.Size = new System.Drawing.Size(75, 23);
+            this.btn_play_music.TabIndex = 2;
+            this.btn_play_music.Text = "Play";
+            this.btn_play_music.UseVisualStyleBackColor = true;
+            this.btn_play_music.Click += new System.EventHandler(this.btn_play_music_Click);
+            // 
             // label_howmany
             // 
             this.label_howmany.AutoSize = true;
@@ -609,15 +623,15 @@
             this.tab_hs.Text = "Highscore";
             this.tab_hs.UseVisualStyleBackColor = true;
             // 
-            // btn_play_music
+            // pictureBox1
             // 
-            this.btn_play_music.Location = new System.Drawing.Point(526, 374);
-            this.btn_play_music.Name = "btn_play_music";
-            this.btn_play_music.Size = new System.Drawing.Size(75, 23);
-            this.btn_play_music.TabIndex = 2;
-            this.btn_play_music.Text = "Play";
-            this.btn_play_music.UseVisualStyleBackColor = true;
-            this.btn_play_music.Click += new System.EventHandler(this.btn_play_music_Click);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(6, 137);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(177, 101);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
             // form_main
             // 
@@ -647,6 +661,7 @@
             this.tab_game.ResumeLayout(false);
             this.tab_game.PerformLayout();
             this.tab_end.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -700,6 +715,7 @@
         private System.Windows.Forms.Label label_howmany;
         private System.Windows.Forms.GroupBox gb_vainqueur;
         private System.Windows.Forms.Button btn_play_music;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
