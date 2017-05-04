@@ -4,12 +4,14 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Xml.Serialization;
+using System.Diagnostics;
 
 namespace Main
 {
     public partial class form_main : Form
     {
-
         Params p = new Params();
         List<Player> players = new List<Player>();
         int nbr_music = 0;
@@ -18,6 +20,8 @@ namespace Main
         public form_main()
         {
             InitializeComponent();
+            ReadXml();
+            showHighscores();
         }
 
         private void form_main_Load(object sender, EventArgs e)
@@ -60,7 +64,7 @@ namespace Main
 
             if(joueurs.Count == 0 || genre.Count == 0)
             {
-                MessageBox.Show("Entrez au moins un joueur et sélectionner au moins un genre !");
+                MessageBox.Show("Entrez au moins un joueur et sélectionnez au moins un genre !");
             } else
             {
                 p.Joueurs = joueurs;
@@ -100,6 +104,101 @@ namespace Main
             label_howmany.Text = actual + "/" + nbr_music;
         }
 
+
+        // DEBUT GESTION DES HIGHSCORES
+
+        List<Player> listOfFame = new List<Player>();
+        List<Player> listOfFame2 = new List<Player>();
+        String debug = Path.GetDirectoryName(Application.ExecutablePath) + "\\HallOfFame.xml";
+
+        public void ReadXml()
+        {
+            if (File.Exists(debug))
+            {
+                Console.WriteLine("If, file exists.");
+
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
+
+                StreamReader reader = new StreamReader(debug);
+                listOfFame = (List<Player>)serializer.Deserialize(reader);
+                reader.Close();
+            }
+            else
+            {
+                Console.WriteLine("Else, file !exists.");
+
+                foreach(Player p in players)
+                {
+                    Player playeeer = new Player("0", 0, 0, 0);
+                    listOfFame.Add(playeeer);
+                }
+
+                XmlSerializer xs = new XmlSerializer(typeof(List<Player>));
+                using (StreamWriter sw = new StreamWriter(debug))
+                {
+                    MessageBox.Show(debug);
+                    xs.Serialize(sw, listOfFame);
+                }
+            }
+        }
+
+        private void determineHighscore()
+        {
+            foreach (Player plr in players)
+            {
+                if (plr.Score > plr.High_score)
+                {
+                    Player PlayersScores = new Player(plr.Pseudo, 0, plr.Id_team, plr.Score, plr.Score);
+                    listOfFame2.Add(PlayersScores);
+                }
+                else
+                {
+                    Player PlayersScores = new Player(plr.Pseudo, 0, plr.Id_team, plr.Score, plr.High_score);
+                    listOfFame2.Add(PlayersScores);
+                }
+                
+                Console.WriteLine(plr.Pseudo + "\n");
+                Console.WriteLine(plr.Id_team + "\n");
+                Console.WriteLine(plr.Score + "\n");
+                Console.WriteLine(plr.High_score + "\n");
+                
+            }
+        }
+
+        private void initiatingSerialization()
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(List<Player>));
+            using (StreamWriter sw = new StreamWriter(debug))
+            {
+                MessageBox.Show(debug);
+                xs.Serialize(sw, listOfFame2);
+            }
+        }
+
+        private void showHighscores()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
+
+            StreamReader reader = new StreamReader(debug);
+
+            listOfFame = (List<Player>)serializer.Deserialize(reader);
+            reader.Close();
+
+            int x = 20;
+            int y = 20;
+            
+            foreach (Player plyr in listOfFame)
+            {
+                Label phs = new Label();
+                phs.Text = plyr.Pseudo + " " + plyr.High_score;
+                phs.Location = new Point(x, y);
+                y += 40;
+
+                tab_hs_highscores.Controls.Add(phs);
+            }
+        }
+        // FIN GESTION DES HIGHSCORES
+
         private void winner_click(object sender, EventArgs e)
         {
             if(actual <= nbr_music)
@@ -109,7 +208,8 @@ namespace Main
                 actual++;
 
                 label_howmany.Text = actual + "/" + nbr_music;
-            } else
+            }
+            else
             {
                 main_tabs.TabPages.Remove(tab_game);
                 main_tabs.TabPages.Add(tab_end);
@@ -128,6 +228,9 @@ namespace Main
                         gb_vainqueur.Controls.Add(rb);
                     }
                 }
+                
+                determineHighscore();
+                initiatingSerialization();
             }
         }
 
@@ -206,6 +309,11 @@ namespace Main
         }
 
         private void btn_play_music_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tab_hs_highscores_Enter(object sender, EventArgs e)
         {
 
         }

@@ -15,8 +15,7 @@ namespace Main
 {
     public partial class UserControlRomain : UserControl
     {
-        List<Player> listOfFame = new List<Player>();
-        Random rnd = new Random();
+        /*List<Player> listOfFame = new List<Player>();
 
         String debug = Path.GetDirectoryName(Application.ExecutablePath) + "\\HallOfFame.xml";
 
@@ -43,7 +42,7 @@ namespace Main
             }
             else
             {
-                //Console.WriteLine("Else, file !exists.");
+                Console.WriteLine("Else, file !exists.");
 
                 String[] pseudos = { "Pseudo 1", "Pseudo 2", "Pseudo 3", "Pseudo 4", "Pseudo 5" };
                 int[] idsTeam = { 1, 1, 1, 2, 2 };
@@ -108,6 +107,6 @@ namespace Main
                 MessageBox.Show(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "HallOfFame.xml"));
                 xs.Serialize(wr, listOfFame);
             }
-        }
+        }*/
     }
 }
