@@ -355,11 +355,14 @@ namespace Main
             main_tabs.TabPages.Add(tab_params);
             main_tabs.TabPages.Add(tab_hs);
 
+            songSelect = new List<string>();
+            descriptions = new List<string>();
+            covers = new List<string>();
+
             nbr_music = 0;
             actual = 0;
             players = new List<Player>();
-            p.Joueurs = new List<string>();
-            p.Genres = new List<string>();
+            p = new Params();
         }
     }
 }
