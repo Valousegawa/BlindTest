@@ -41,9 +41,6 @@ namespace Main
             main_tabs.TabPages.Remove(tab_game);
             main_tabs.TabPages.Remove(tab_end);
             main_tabs.TabPages.Remove(tab_arbitre);
-
-            ll_login.Links.Add(12, 6, "https://accounts.spotify.com/fr-FR/login");
-            ll_login.Links.Add(60, 13, "https://www.spotify.com/fr/download/windows/");
         }
 
         private void btn_go_Click(object sender, EventArgs e)
@@ -73,7 +70,6 @@ namespace Main
             {
                 if (clb_genre.GetItemChecked(16))
                 {
-                    Debug.WriteLine(tb_perso_genre);
                     genre.Add(tb_perso_genre.Text);
                 }
                 else
@@ -82,7 +78,7 @@ namespace Main
                 }
             }
 
-            if(joueurs.Count == 0 || genre.Count == 0)
+            if(joueurs.Count < 2 || genre.Count == 0)
             {
                 MessageBox.Show("Entrez au moins un joueur et sélectionner au moins un genre !");
             } else
@@ -348,6 +344,22 @@ namespace Main
                 ms.Close();
             }
 
+        }
+
+        private void btn_rejouer_Click(object sender, EventArgs e)
+        {
+            main_tabs.TabPages.Remove(tab_game);
+            main_tabs.TabPages.Remove(tab_end);
+
+            main_tabs.TabPages.Add(tab_rules);
+            main_tabs.TabPages.Add(tab_params);
+            main_tabs.TabPages.Add(tab_hs);
+
+            nbr_music = 0;
+            actual = 0;
+            players = new List<Player>();
+            p.Joueurs = new List<string>();
+            p.Genres = new List<string>();
         }
     }
 }
